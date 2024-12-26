@@ -13,10 +13,10 @@ def home(request):
 def update_webhook(request):
     # function to handle webhook push from github
     # one more comment added
-    repo = git.Repo('/home/tanishashankpal/myprofile/myapp')
+    repo = git.Repo('/home/dhruvshankpal/myprofile/myprofileapp')
     repo.remotes.origin.pull()
     # python manage.py collectstatic --noinput
-    # subprocess.run(["cd", "/home/tanishashankpal/myprofile"])
-    os.chdir("/home/tanishashankpal/myprofile")
-    subprocess.run(["python", "manage.py", "collectstatic", "--noinput"], cwd='/home/tanishashankpal/myprofile')
+    # subprocess.run(["cd", "/home/dhruvshankpal/myprofile"])
+    os.chdir("/home/dhruvshankpal/myprofile")
+    subprocess.run(["python", "manage.py", "collectstatic", "--noinput"], cwd='/home/dhruvshankpal/myprofile')
     return HttpResponse("Hello World5!")
