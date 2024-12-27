@@ -20,7 +20,7 @@ def update_webhook(request):
     # subprocess.run(["cd", "/home/dhruvshankpal/myprofile"])
     os.chdir("/home/dhruvshankpal/myprofile")
     subprocess.run(["python", "manage.py", "collectstatic", "--noinput"], cwd='/home/dhruvshankpal/myprofile')
-
+    print("this message should be printed before")
     username = 'dhruvshankpal'
     token = '865e11f353b89296a61344e07574505d77708e66' #pythonanywhere API token
     domain_name = "dhruvshankpal.pythonanywhere.com"
@@ -30,8 +30,10 @@ def update_webhook(request):
         ),
         headers={'Authorization': 'Token {token}'.format(token=token)}
     )
+    print("this message should be printed after")
     if response.status_code == 200:
         print('reloaded OK')
     else:
         print('Got unexpected status code {}: {!r}'.format(response.status_code, response.content))
+    print("last msg before return!")
     return HttpResponse("Hello World5!")
